@@ -75,9 +75,9 @@ const Navber = () => {
       click && (
             <div className=" flex flex-col  md:hidden justify-center bg-gray-50/50 py-2 border border-gray-50 items-center space-y-2 font-medium overflow-hidden transition-all duration-300 ease-in-out">
 
-          <Navlink href="/" onClick={()=>Closemenu}>Home</Navlink>
-          <Navlink href="/appointment" onClick={()=>Closemenu}>All Appointments </Navlink>
-          <Navlink href="/dashboard" onClick={()=>Closemenu}>Dashboard</Navlink>
+          <Navlink href="/" onClick={ Closemenu}>Home</Navlink>
+          <Navlink href="/appointment" onClick={ Closemenu}>All Appointments </Navlink>
+          <Navlink href="/dashboard" onClick={ Closemenu}>Dashboard</Navlink>
         
             <div>
             <Link href='/register' className="text-[#00685F] text-[16px]">Sign In / Register</Link>
