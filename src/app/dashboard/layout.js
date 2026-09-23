@@ -10,7 +10,7 @@ const DashBoardlayout = ({children}) => {
                 <Sidebar></Sidebar>
             </aside>
 
-            <main>
+            <main className="w-full ">
                 {children}
             </main>
             
