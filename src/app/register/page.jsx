@@ -7,12 +7,33 @@ import Image from 'next/image';
 import { FaGoogle } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Link from 'next/link';
+
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 const RegisterPage = () => {
-  const onSubmit = (e) => {
+
+  const router=useRouter();
+  const onSubmit =async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-   
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+
+
+   const formdata= new FormData(e.currentTarget);
+
+  const name=formdata.get("name");
+   const image = formdata.get("url");
+  const email = formdata.get("email");
+   const password = formdata.get("password");
+
+  const {data,error}=await authClient.signUp.email({name,image,email,password})
+
+
+
+
+   if(!error){
+    router.push('/')
+   }
+
+
   };
 
 
@@ -64,7 +85,7 @@ const RegisterPage = () => {
                             <div className="flex justify-center font-normal items-center gap-2 text-[#6D7A77]">
                                 <hr className="flex-1" />
                                 <span className="whitespace-nowrap">
-                                    OR SIGN IN WITH EMAIL
+                                    OR SIGN UP WITH EMAIL
                                 </span>
                                 <hr className="flex-1" />
 

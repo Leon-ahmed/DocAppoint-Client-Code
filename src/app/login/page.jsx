@@ -7,12 +7,19 @@ import Image from 'next/image';
 import { FaGoogle } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Link from 'next/link';
+import { authClient } from '@/lib/auth-client';
 const LoginPage = () => {
-  const onSubmit = (e) => {
+  const onSubmit =async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-   
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+ 
+      const formdata= new FormData(e.currentTarget);
+
+
+  const email = formdata.get("email");
+   const password = formdata.get("password");
+
+  const {data,error}=await authClient.signIn.email({email,password,callbackURL:"/"})
+  
   };
 
 
