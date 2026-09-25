@@ -1,5 +1,5 @@
 import Image from "next/image";
-import not from "../.././public/notfound.svg"
+import not from "../../public/notfound.svg"
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import { DiVim } from "react-icons/di";
